@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE4B3D4A-F9CA-4D10-8F87-0DE5CE902C23}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>IcalCreator</RootNamespace>
+    <AssemblyName>IcalCreator</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>Source\Resource\calendar.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>IcalCreator.Init.InitApp</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="antlr.runtime, Version=2.7.6.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ical.Net.2.3.6\lib\net40\antlr.runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Ical.Net, Version=2.1.0.34378, Culture=neutral, PublicKeyToken=65c0446cd019ea53, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ical.Net.2.3.6\lib\net40\Ical.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Ical.Net.Collections, Version=2.1.0.34376, Culture=neutral, PublicKeyToken=65c0446cd019ea53, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ical.Net.2.3.6\lib\net40\Ical.Net.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="mx.com.medisist.Framework, Version=1.38.0.0, Culture=neutral, PublicKeyToken=ca2904159cbad939, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Desarrollo\FuentesEnlace\trunk\Desa\Enlace\Ver2.00\Librerias-Binarios\mx.com.medisist\Framework\mx.com.medisist.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="mx.com.medisist.util, Version=1.35.0.0, Culture=neutral, PublicKeyToken=ca2904159cbad939, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Desarrollo\FuentesEnlace\trunk\Desa\Enlace\Ver2.00\Librerias-Binarios\mx.com.medisist\Util\mx.com.medisist.util.dll</HintPath>
+    </Reference>
+    <Reference Include="NodaTime, Version=1.3.0.0, Culture=neutral, PublicKeyToken=4226afe0d9b296d1, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ical.Net.2.3.6\lib\net40\NodaTime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Source\Controller\CirugiaEventGenerator.cs" />
+    <Compile Include="Source\Controller\CitaEventGenerator.cs" />
+    <Compile Include="Source\Data\Persistance.cs" />
+    <Compile Include="Source\Init\InitApp.cs" />
+    <Compile Include="Source\Data\DatabaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Log\LogUtil.cs" />
+    <Compile Include="Source\Model\Enum\AlarmAction.cs" />
+    <Compile Include="Source\Model\Enum\PriorityType.cs" />
+    <Compile Include="Source\Model\Evento.cs" />
+    <Compile Include="Source\Param\EmailValues.cs" />
+    <Compile Include="Source\Settings\AppSettings.cs" />
+    <Compile Include="Source\Settings\AppSettingsValues.cs" />
+    <Compile Include="Source\Test\SettingsTest.cs" />
+    <Compile Include="Source\Settings\AppSettingsModel.cs" />
+    <Compile Include="Source\Ui\Controller\PeriodicSendSettingsController.cs" />
+    <Compile Include="Source\Ui\Controller\PeriodicSendController.cs" />
+    <Compile Include="Source\Ui\View\IcalCreatorSendView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Ui\View\IcalCreatorSendView.Designer.cs">
+      <DependentUpon>IcalCreatorSendView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Ui\View\PeriodicSendSettingsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Ui\View\PeriodicSendSettingsView.Designer.cs">
+      <DependentUpon>PeriodicSendSettingsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Ui\View\PeriodicSendView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Ui\View\PeriodicSendView.designer.cs">
+      <DependentUpon>PeriodicSendView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Util\EnumUtil.cs" />
+    <Compile Include="Source\Model\Enum\EstadoParticipacion.cs" />
+    <Compile Include="Source\Model\AlertType.cs" />
+    <Compile Include="Source\Test\EmailSendTest.cs" />
+    <Compile Include="Source\Test\IcalCreateTest.cs" />
+    <Compile Include="Source\Test\IcalViewTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Test\IcalViewTest.Designer.cs">
+      <DependentUpon>IcalViewTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Model\Asistentes.cs" />
+    <Compile Include="Source\Init\InitView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Model\EventModel.cs" />
+    <Compile Include="Source\Model\EmailSettings.cs" />
+    <Compile Include="Source\Util\EmailUtil.cs" />
+    <Compile Include="Source\Util\IcalUtil.cs" />
+    <Compile Include="Source\Model\Enum\TransparencyType.cs" />
+    <Compile Include="Source\Model\Enum\VisibilityType.cs" />
+    <Compile Include="Source\Util\StringUtil.cs" />
+    <EmbeddedResource Include="Source\Ui\View\IcalCreatorSendView.resx">
+      <DependentUpon>IcalCreatorSendView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Ui\View\PeriodicSendSettingsView.resx">
+      <DependentUpon>PeriodicSendSettingsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Test\IcalViewTest.resx">
+      <DependentUpon>IcalViewTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Source\Ui\View\PeriodicSendView.resx">
+      <DependentUpon>PeriodicSendView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Source\Data\DatabaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DatabaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Source\Resource\calendar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

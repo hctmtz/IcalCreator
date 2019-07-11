@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BD_SICYPROHModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BD_SICYPROHModelStoreContainer" />
+        <Function Name="ppGenerarEventoAgenda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iEpisodio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppGenerarEventoAgendaCita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iEpisodio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppObtenerAsistentesAgenda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iEpisodio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppObtenerAsistentesCitaAgenda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iEpisodio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppObtenerCirugiasPrograAgenda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ppObtenerCitaMedicaAgenda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ppRegistrarEventoAgenda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iFolioEvento" Type="int" Mode="In" />
+          <Parameter Name="iTipoEvento" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD_SICYPROHModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BD_SICYPROHEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="ppGenerarEventoAgenda" ReturnType="Collection(BD_SICYPROHModel.ppGenerarEventoAgenda_Result)">
+          <Parameter Name="iEpisodio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppObtenerAsistentesAgenda" ReturnType="Collection(BD_SICYPROHModel.ppObtenerAsistentesAgenda_Result)">
+          <Parameter Name="iEpisodio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppRegistrarEventoAgenda">
+            <Parameter Name="iFolioEvento" Mode="In" Type="Int32" />
+            <Parameter Name="iTipoEvento" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppObtenerCirugiasPrograAgenda" ReturnType="Collection(BD_SICYPROHModel.ppObtenerCirugiasPrograAgenda_Result)" />
+          <FunctionImport Name="ppObtenerCitaMedicaAgenda" ReturnType="Collection(BD_SICYPROHModel.ppObtenerCitaMedicaAgenda_Result)" />
+          <FunctionImport Name="ppGenerarEventoAgendaCita" ReturnType="Collection(BD_SICYPROHModel.ppGenerarEventoAgendaCita_Result)">
+            <Parameter Name="iEpisodio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppObtenerAsistentesCitaAgenda" ReturnType="Collection(BD_SICYPROHModel.ppObtenerAsistentesCitaAgenda_Result)">
+            <Parameter Name="iEpisodio" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="ppGenerarEventoAgenda_Result">
+          <Property Type="Int32" Name="iFolioEvento" Nullable="true" />
+          <Property Type="DateTime" Name="dtFechaInicio" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="dtFechaFin" Nullable="true" Precision="23" />
+          <Property Type="String" Name="vchUbicacion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vchDescripcion" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="vchResumen" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="vchNombreOrganizador" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vchCorreoOrganizador" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vchResumenAlerta" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="ppObtenerAsistentesAgenda_Result">
+          <Property Type="String" Name="vchNombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vchCorreo" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="iEstadoParticipación" Nullable="true" />
+          <Property Type="Int32" Name="iRsvp" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ppObtenerCirugiasPrograAgenda_Result">
+          <Property Type="Int32" Name="iCodCirugia" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ppObtenerCitaMedicaAgenda_Result">
+          <Property Type="Int32" Name="iCodCita" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ppGenerarEventoAgendaCita_Result">
+          <Property Type="Int32" Name="iFolioEvento" Nullable="true" />
+          <Property Type="DateTime" Name="dtFechaInicio" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="dtFechaFin" Nullable="true" Precision="23" />
+          <Property Type="String" Name="vchUbicacion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vchDescripcion" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="vchResumen" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="vchNombreOrganizador" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vchCorreoOrganizador" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vchResumenAlerta" Nullable="true" MaxLength="2000" />
+        </ComplexType>
+        <ComplexType Name="ppObtenerAsistentesCitaAgenda_Result">
+          <Property Type="Int32" Name="iIdUsuario" Nullable="true" />
+          <Property Type="String" Name="vchNombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="vchCorreo" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="iEstadoParticipación" Nullable="true" />
+          <Property Type="Int32" Name="iRsvp" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD_SICYPROHModelStoreContainer" CdmEntityContainer="BD_SICYPROHEntities" >
+          <FunctionImportMapping FunctionImportName="ppGenerarEventoAgenda" FunctionName="BD_SICYPROHModel.Store.ppGenerarEventoAgenda">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SICYPROHModel.ppGenerarEventoAgenda_Result">
+                <ScalarProperty Name="iFolioEvento" ColumnName="iFolioEvento" />
+                <ScalarProperty Name="dtFechaInicio" ColumnName="dtFechaInicio" />
+                <ScalarProperty Name="dtFechaFin" ColumnName="dtFechaFin" />
+                <ScalarProperty Name="vchUbicacion" ColumnName="vchUbicacion" />
+                <ScalarProperty Name="vchDescripcion" ColumnName="vchDescripcion" />
+                <ScalarProperty Name="vchResumen" ColumnName="vchResumen" />
+                <ScalarProperty Name="vchNombreOrganizador" ColumnName="vchNombreOrganizador" />
+                <ScalarProperty Name="vchCorreoOrganizador" ColumnName="vchCorreoOrganizador" />
+                <ScalarProperty Name="vchResumenAlerta" ColumnName="vchResumenAlerta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppObtenerAsistentesAgenda" FunctionName="BD_SICYPROHModel.Store.ppObtenerAsistentesAgenda">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SICYPROHModel.ppObtenerAsistentesAgenda_Result">
+                <ScalarProperty Name="vchNombre" ColumnName="vchNombre" />
+                <ScalarProperty Name="vchCorreo" ColumnName="vchCorreo" />
+                <ScalarProperty Name="iEstadoParticipación" ColumnName="iEstadoParticipación" />
+                <ScalarProperty Name="iRsvp" ColumnName="iRsvp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppRegistrarEventoAgenda" FunctionName="BD_SICYPROHModel.Store.ppRegistrarEventoAgenda" />
+          <FunctionImportMapping FunctionImportName="ppObtenerCirugiasPrograAgenda" FunctionName="BD_SICYPROHModel.Store.ppObtenerCirugiasPrograAgenda">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SICYPROHModel.ppObtenerCirugiasPrograAgenda_Result">
+                <ScalarProperty Name="iCodCirugia" ColumnName="iCodCirugia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppObtenerCitaMedicaAgenda" FunctionName="BD_SICYPROHModel.Store.ppObtenerCitaMedicaAgenda">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SICYPROHModel.ppObtenerCitaMedicaAgenda_Result">
+                <ScalarProperty Name="iCodCita" ColumnName="iCodCita" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppGenerarEventoAgendaCita" FunctionName="BD_SICYPROHModel.Store.ppGenerarEventoAgendaCita">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SICYPROHModel.ppGenerarEventoAgendaCita_Result">
+                <ScalarProperty Name="iFolioEvento" ColumnName="iFolioEvento" />
+                <ScalarProperty Name="dtFechaInicio" ColumnName="dtFechaInicio" />
+                <ScalarProperty Name="dtFechaFin" ColumnName="dtFechaFin" />
+                <ScalarProperty Name="vchUbicacion" ColumnName="vchUbicacion" />
+                <ScalarProperty Name="vchDescripcion" ColumnName="vchDescripcion" />
+                <ScalarProperty Name="vchResumen" ColumnName="vchResumen" />
+                <ScalarProperty Name="vchNombreOrganizador" ColumnName="vchNombreOrganizador" />
+                <ScalarProperty Name="vchCorreoOrganizador" ColumnName="vchCorreoOrganizador" />
+                <ScalarProperty Name="vchResumenAlerta" ColumnName="vchResumenAlerta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppObtenerAsistentesCitaAgenda" FunctionName="BD_SICYPROHModel.Store.ppObtenerAsistentesCitaAgenda">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_SICYPROHModel.ppObtenerAsistentesCitaAgenda_Result">
+                <ScalarProperty Name="iIdUsuario" ColumnName="iIdUsuario" />
+                <ScalarProperty Name="vchNombre" ColumnName="vchNombre" />
+                <ScalarProperty Name="vchCorreo" ColumnName="vchCorreo" />
+                <ScalarProperty Name="iEstadoParticipación" ColumnName="iEstadoParticipación" />
+                <ScalarProperty Name="iRsvp" ColumnName="iRsvp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" />
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
